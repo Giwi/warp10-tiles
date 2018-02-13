@@ -17,6 +17,8 @@
 <link rel="import" href="./warp10-tiles-display-boolean.html">
 <link rel="import" href="./warp10-tiles-display-date.html">
 <link rel="import" href="./warp10-tiles-display-gauge.html">
+<link rel="import" href="./warp10-tiles-display-donut.html">
+<link rel="import" href="./warp10-tiles-display-pie.html">
 <link rel="import" href="./warp10-tiles-display-image.html">
 <link rel="import" href="./warp10-tiles-display-message.html">
 <link rel="import" href="./warp10-tiles-display-map.html">
@@ -135,24 +137,66 @@
     <dom-if if="[[equals(_resultType,'donut')]]">
       <template>
         <warp10-tiles-display-donut
-            size="[[_responseParams.size]]"
-            bg-color="[[_responseParams.bgColor]]"
-            fg-color="[[_responseParams.fgColor]]"
-            data="[[_responseParams.data]]"
-            min="[[_responseParams.min]]"
-            max="[[_responseParams.max]]"
-            units="[[_responseParams.units]]"
-            precision="[[_responseParams.precision]]"
-            colors="[[_wrapUndefined(_responseParams.colors)]]"
-            primary-color="[[_responseParams.data.color]]"
-            secondary-color="[[_responseParams.data.secondaryColor]]"
-            label="[[_responseParams.label]]"
-            icon="[[_responseParams.icon]]"
-            description="[[_responseParams.description]]"
-            debug="[[debug]]"></warp10-tiles-display-donut>
+          size="[[_responseParams.size]]"
+          bg-color="[[_responseParams.bgColor]]"
+          fg-color="[[_responseParams.fgColor]]"
+          data="[[_responseParams.data]]"
+          min="[[_responseParams.min]]"
+          max="[[_responseParams.max]]"
+          units="[[_responseParams.units]]"
+          precision="[[_responseParams.precision]]"
+          colors="[[_wrapUndefined(_responseParams.colors)]]"
+          primary-color="[[_responseParams.data.color]]"
+          secondary-color="[[_responseParams.data.secondaryColor]]"
+          label="[[_responseParams.label]]"
+          icon="[[_responseParams.icon]]"
+          description="[[_responseParams.description]]"
+          debug="[[debug]]"></warp10-tiles-display-donut>
       </template>
     </dom-if>
 
+    <dom-if if="[[equals(_resultType,'pie')]]">
+      <template>
+        <warp10-tiles-display-pie
+          size="[[_responseParams.size]]"
+          bg-color="[[_responseParams.bgColor]]"
+          fg-color="[[_responseParams.fgColor]]"
+          data="[[_responseParams.data]]"
+          min="[[_responseParams.min]]"
+          max="[[_responseParams.max]]"
+          units="[[_responseParams.units]]"
+          precision="[[_responseParams.precision]]"
+          colors="[[_wrapUndefined(_responseParams.colors)]]"
+          primary-color="[[_responseParams.data.color]]"
+          secondary-color="[[_responseParams.data.secondaryColor]]"
+          label="[[_responseParams.label]]"
+          icon="[[_responseParams.icon]]"
+          description="[[_responseParams.description]]"
+          debug="[[debug]]"></warp10-tiles-display-pie>
+      </template>
+    </dom-if>
+
+    <dom-if if="[[equals(_resultType,'image')]]">
+      <template>
+
+        <warp10-tiles-display-image
+          size="[[_responseParams.size]]"
+          bg-color="[[_responseParams.bgColor]]"
+          fg-color="[[_responseParams.fgColor]]"
+          data="[[_responseParams.data]]"
+          min="[[_responseParams.min]]"
+          max="[[_responseParams.max]]"
+          units="[[_responseParams.units]]"
+          precision="[[_responseParams.precision]]"
+          colors="[[_wrapUndefined(_responseParams.colors)]]"
+          primary-color="[[_responseParams.data.color]]"
+          secondary-color="[[_responseParams.data.secondaryColor]]"
+          label="[[_responseParams.label]]"
+          icon="[[_responseParams.icon]]"
+          description="[[_responseParams.description]]"
+          debug="[[debug]]"></warp10-tiles-display-image>
+      </template>
+    </dom-if>
 
     <dom-if if="[[equals(_resultType,'chart')]]">
       <template>
@@ -269,7 +313,7 @@
           },
           _validResultTypes: {
             type: Boolean,
-            value: ['boolean', 'date', 'number', 'gauge', 'donut', 'map', 'img', 'chart', 'error'],
+            value: ['boolean', 'date', 'number', 'gauge', 'map', 'img', 'chart', 'error', 'pie', 'donut', 'image'],
           },
           _responseParams: {
             type: Object,

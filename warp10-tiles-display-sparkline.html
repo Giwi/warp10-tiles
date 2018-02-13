@@ -14,7 +14,7 @@
 <link rel="import" href="./warp10-tiles-engine.html">
 <link rel="import" href="./warp10-tiles-style.html">
 
-<link rel="import" href="../warp10-quantumviz/warp10-display-c3-chart.html">
+<link rel="import" href="../warp10-quantumviz/warp10-display-dy-chart.html">
 
 
 <dom-module id="warp10-tiles-display-sparkline">
@@ -228,7 +228,7 @@
 
           hideAxis: {
             type: Boolean,
-            value: false
+            value: true
           },
 
           /**
@@ -291,7 +291,7 @@
 
       // --------------------------------------------------------------------------------------------
       // Computed bindings
-      // --------------------------------------------------------------------------------------------  
+      // --------------------------------------------------------------------------------------------
 
 
       _hasNLines(currentValues, n) {
@@ -458,7 +458,7 @@
 
       // --------------------------------------------------------------------------------------------
       // Event listeners
-      // --------------------------------------------------------------------------------------------  
+      // --------------------------------------------------------------------------------------------
 
       _onDimensionsChanged(evt) {
         this._dimensions = evt.detail.value;
